@@ -10,16 +10,13 @@ It analyzes repositories, retrieves relevant context, and answers user questions
 ---
 
 ## 🏗️ Architecture (High Level)
-
+cat <<'EOF'
 User Question
-↓
-Repository Context Retrieval (BM25)
-↓
-LLM Processing (Groq / LLaMA)
-↓
-[Planned] Multi-LLM Consensus Layer
-↓
-Final Answer
+└── Repository Context Retrieval (BM25)
+    └── LLM Processing (Groq / LLaMA)
+        └── [Planned] Multi-LLM Consensus Layer
+            └── Final Answer
+
 
 
 ---
