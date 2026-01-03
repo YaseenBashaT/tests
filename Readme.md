@@ -47,21 +47,6 @@ User Question
 
 ---
 
-## 📁 Project Structure
-
-```text
-Intelligent-Github-Repository-Analyzer/
-├── main.py
-├── repo_reader.py
-├── questions.py
-├── utility.py
-├── requirements.txt
-├── README.md
-├── PROJECT_SUMMARY.md
-└── repo_cache/
-
-
-
 ---
 
 ## ▶️ How to Run
