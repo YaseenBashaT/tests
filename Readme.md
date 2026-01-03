@@ -20,7 +20,7 @@ User Question
             └── Final Answer
 
 
-
+```
 
 
 ---
@@ -56,7 +56,7 @@ pip install -r requirements.txt
 python3 -c "import nltk; nltk.download('punkt_tab')"
 export GROQ_API_KEY=your_key
 python3 -m streamlit run main.py
-
+```
 App runs at: http://localhost:8501
 🔁 Multi-LLM Consensus (Planned)
 
