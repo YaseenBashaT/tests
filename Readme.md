@@ -38,12 +38,16 @@ User Question
 ## 🔧 Tech Stack
 - **Language:** Python 3.12
 - **UI:** Streamlit
-- **LLM:** Groq API
+- **LLM Providers:**  
+  - Groq API (LLaMA models)  
+  - Hugging Face Inference API (Mistral
+  - Gemini API
 - **Framework:** LangChain
 - **NLP:** NLTK
 - **Ranking:** rank-bm25
 - **Repo Handling:** GitPython
 - **Visualization:** Plotly, NetworkX
+
 
 ---
 
