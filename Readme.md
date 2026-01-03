@@ -9,12 +9,17 @@ It analyzes repositories, retrieves relevant context, and answers user questions
 
 ---
 
-## 🏗️ Architecture (High Level)
+
+## 🏗️ Architecture
+
+```text
 User Question
 └── Repository Context Retrieval (BM25)
     └── LLM Processing (Groq / LLaMA)
         └── [Planned] Multi-LLM Consensus Layer
             └── Final Answer
+
+
 
 
 
@@ -44,6 +49,7 @@ User Question
 
 ## 📁 Project Structure
 
+```text
 Intelligent-Github-Repository-Analyzer/
 ├── main.py
 ├── repo_reader.py
@@ -53,6 +59,7 @@ Intelligent-Github-Repository-Analyzer/
 ├── README.md
 ├── PROJECT_SUMMARY.md
 └── repo_cache/
+
 
 
 ---
