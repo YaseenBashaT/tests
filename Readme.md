@@ -1,96 +1,187 @@
-# 🧠 Smart Repository Analyzer (Multi-LLM Ready)
+# 🚀 AI-Powered GitHub Repository Analyzer (Multi-LLM Consensus Engine)
 
 ## 📌 Problem Statement
-Single-LLM tools used for understanding large GitHub repositories often produce hallucinated or incomplete answers, making them unreliable for productivity-critical tasks like code understanding and architectural analysis.
-
-## 💡 Solution
-This project is an **AI-powered GitHub Repository Analyzer** designed to evolve into a **Multi-LLM Consensus Engine**.  
-It analyzes repositories, retrieves relevant context, and answers user questions reliably by laying the foundation for multi-model agreement instead of single-model dependency.
+Developers and teams often need deep insights into unfamiliar codebases, but traditional search and keyword-based approaches are limited. Single-LLM tools are prone to hallucinations, lack consistency, and can miss important context. This makes them unreliable for productivity-critical tasks like code understanding, architectural analysis, and actionable recommendations.
 
 ---
 
+## 💡 Solution Overview
+This project delivers an **AI-powered GitHub Repository Analyzer** that:
+- Clones and indexes public GitHub repositories
+- Retrieves relevant content using lexical and semantic search
+- Queries **multiple Large Language Models (LLMs)** in parallel
+- Uses **semantic consensus logic** to produce the most reliable answer
+
+By using multiple independent LLM providers and selecting the response with the highest semantic agreement, the system significantly reduces hallucination and improves answer reliability.
+
+---
 
 ## 🏗️ Architecture
 
 ```text
 User Question
 └── Repository Context Retrieval (BM25)
-    └── LLM Processing (Groq / LLaMA)
-        └── [Planned] Multi-LLM Consensus Layer
-            └── Final Answer
+    └── Multi-LLM Inference
+        ├── Groq (LLaMA)
+        ├── Hugging Face (Mistral)
+        └── Gemini (gemini-1.5-flash)
+            ↓
+    Response Embeddings (all-MiniLM-L6-v2)
+            ↓
+    Cosine Similarity Consensus
+            ↓
+        Final Answer to UI
 
+🧠 Key Features
+✨ Core Capabilities
 
-```
+    Repository Cloning: Clone public GitHub repos from URL
 
+    Indexing and Tokenization: Process files for efficient retrieval
 
----
+    Document Ranking: BM25-based relevance ranking
 
-## 🧠 AI & ML Concepts Used
-- Large Language Models (LLMs)
-- Prompt & Context Engineering
-- BM25 Document Ranking
-- Text Embeddings (planned)
-- Multi-Model Consensus (planned)
-- Foundations for Agentic AI & RAG
+    Multi-LLM Parallel Querying: Groq, Mistral and Gemini
 
----
+    Consensus Logic: Embedding-based agreement selection
 
-## 🔧 Tech Stack
-- **Language:** Python 3.12
-- **UI:** Streamlit
-- **LLM Providers:**  
-  - Groq API (LLaMA models)  
-  - Hugging Face Inference API (Mistral
-  - Gemini API
-- **Framework:** LangChain
-- **NLP:** NLTK
-- **Ranking:** rank-bm25
-- **Repo Handling:** GitPython
-- **Visualization:** Plotly, NetworkX
+    Error Handling & Robustness: Timeouts, retries, failover
 
+    Streamlit UI: Interactive, clean interface for questions
 
----
+🔧 Technology Stack
 
----
+    Language: Python 3.12
 
-## ▶️ How to Run
+    Frontend: Streamlit (web UI)
 
-```bash
+    LLM Providers:
+
+        Groq API (LLaMA models)
+
+        Hugging Face Inference API (Mistral)
+
+        Gemini API (gemini-1.5-flash)
+
+    Vector/Embedding Support: sentence-transformers
+
+    Retrieval: rank-bm25
+
+    NLP: NLTK
+
+    Repository Handling: GitPython
+
+    Visualizations: Plotly, NetworkX
+
+    Framework: LangChain
+
+🚀 Getting Started
+🛠 Prerequisites
+
+    Python 3.12
+
+    Create and activate a virtual environment:
+
+python3 -m venv .venv
+source .venv/bin/activate
+
+📦 Install Dependencies
+
 pip install -r requirements.txt
+
+🧠 Download NLP Models
+
 python3 -c "import nltk; nltk.download('punkt_tab')"
-export GROQ_API_KEY=your_key
+
+🔑 Set Environment Variables
+
+Create a .env file and add:
+
+GROQ_API_KEY=your_groq_api_key
+HF_API_TOKEN=your_huggingface_token
+GEMINI_API_KEY=your_gemini_api_key
+
+▶️ Running the Application
+
 python3 -m streamlit run main.py
-```
-App runs at: http://localhost:8501
-🔁 Multi-LLM Consensus (Planned)
 
-    Independent queries to multiple LLMs
+Access the UI at:
 
-    Response embeddings
+http://localhost:8501
 
-    Cosine similarity scoring
+🔍 Usage Walkthrough
 
-    Final answer based on highest agreement
+    Enter GitHub Repository URL
+    Paste any public GitHub URL in the input box.
 
-🚀 Future Scope
+    Ask Questions
+    Enter natural language questions about the repository’s code and structure.
 
-    Multi-LLM consensus implementation
+    View Results
+    Get the best consensus answer distilled from multiple LLMs.
 
-    RAG with ChromaDB
+📊 Consensus Mechanism
 
-    Agentic workflows
+This system does not rely on a single LLM. Instead:
 
-    FastAPI backend
+    Each model produces its own answer.
 
-    Docker & cloud deployment
+    Each answer is embedded using a shared embedding model.
+
+    Cosine similarity is computed between all pairs.
+
+    The response with the highest average agreement is selected.
+
+This ensures:
+
+    Suppression of hallucinated answers
+
+    Better reliability across diverse contexts
+
+    Stronger, consensus-guided answers
+
+🧪 Evaluation Strategy
+
+Evaluation is based on:
+
+    Semantic agreement score
+
+    Human qualitative validation
+
+    Robustness against single-model failures
+
+📜 Assumptions
+
+    Only public GitHub repositories are supported
+
+    Internet access required for external APIs
+
+    Users supply valid API keys
+
+🛡️ Guardrails
+
+    Independent model execution with failover
+
+    Timeout and retry logic
+
+    Input sanitization and validation
+
+    No API keys committed to source control
+
+🪪 Tests
+
+    test_cache.py: Verifies repository caching
+
+    test_consensus.py: Verifies consensus logic correctness
+
+    test_groq.py: Ensures Groq LLM integration
 
 🤖 AI Tool Usage
 
-    GitHub Copilot (code assistance)
+    ChatGPT: Architecture design, planning, prompt guidance, review
 
-    ChatGPT (design & architecture)
+    GitHub Copilot: Assisted code implementation under developer supervision
 
-AI interaction logs are retained as per hackathon guidelines.
 🏁 Conclusion
 
-This project delivers a practical, extensible, and production-oriented AI system for repository understanding, with a clear roadmap toward reliable multi-model consensus-based reasoning.
+This repository is a robust, extensible, and evaluation-ready AI system that combines retrieval, multi-model inference, and semantic consensus to produce reliable answers about GitHub repositories. It demonstrates practical AI engineering beyond single-model approaches and aligns with real-world productivity and software engineering needs.
